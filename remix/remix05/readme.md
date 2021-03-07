@@ -1,5 +1,5 @@
-# REMIX: Part 5
-## Dissentigrate
+# Dissentigrate
+## REMIX: Part 5
 
 I wanted to explore the ways code could be used to add an organic dissentigration to normally vector output of type. All entries use a passage from Herman Hesse's Siddhartha:
 
