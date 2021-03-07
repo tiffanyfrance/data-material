@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Lora&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin&display=swap');
+
+* {
+  /* font-family: 'Libre Baskerville', serif; */
+  /* font-family: 'Shippori Mincho B1', serif; */
+  /* font-family: 'Lora', serif; */
+  font-family: 'Libre Franklin', sans-serif;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #333;
+  font-weight: normal;
+}
+
+.gray {
+  color: #999;
+  fill: #999;
+}
+
+.mute {
+  color: #ccc;
+  fill: #ccc;
+}
+
+/* ANIMATIONS */
+@keyframes glitch {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+@keyframes dissapear {
+  0% {
+    opacity: 1;
+  }
+
+  99% {
+    opacity: 0.9;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}

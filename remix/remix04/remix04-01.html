@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parts of Speech</title>
+  <link rel="stylesheet" href="../global.css">
+  <style>
+    body {
+      text-align: center;
+    }
+
+    svg {
+      margin: 20px auto 0;
+    }
+
+    .connection {
+      stroke: #ddd;
+      stroke-width: 0.5;
+    }
+
+    .hide {
+      opacity: 0.1;
+    }
+
+    .red {
+      fill: red;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="viz">
+    <svg></svg>
+  </div>
+
+</body>
+<script src="https://d3js.org/d3.v6.min.js"></script>
+<script>
+
+  let poemHTMLArr = [
+    {
+      "line": [
+        { "word": "Sometimes", "partOfSpeech": "" },
+        { "word": "as", "partOfSpeech": "" },
+        { "word": "an", "partOfSpeech": "" },
+        { "word": "antidote", "partOfSpeech": "nouns" }
+      ]
+    },
+    {
+      "line": [
+        { "word": "To", "partOfSpeech": "" },
+        { "word": "fear", "partOfSpeech": "verbs" },
+        { "word": "of", "partOfSpeech": "" },
+        { "word": "death,", "partOfSpeech": "nouns" }
+      ]
+    },
+    {
+      "line": [
+        { "word": "I", "partOfSpeech": "pronouns" },
+        { "word": "eat", "partOfSpeech": "verbs" },
+        { "word": "the", "partOfSpeech": "" },
+        { "word": "stars.", "partOfSpeech": "nouns" }
+      ]
+    },
+    {
+      "line": [
+        { "word": "Those", "partOfSpeech": "" },
+        { "word": "nights,", "partOfSpeech": "nouns" },
+        { "word": "lying", "partOfSpeech": "verbs" },
+        { "word": "on", "partOfSpeech": "" },
+        { "word": "my", "partOfSpeech": "pronouns" },
+        { "word": "back,", "partOfSpeech": "nouns" }
+      ]
+    },
+    {
+      "line": [
+        { "word": "I", "partOfSpeech": "pronouns" },
+        { "word": "suck", "partOfSpeech": "verbs" },
+        { "word": "them", "partOfSpeech": "pronouns" },
+        { "word": "from", "partOfSpeech": "" },
+        { "word": "the", "partOfSpeech": "" },
+        { "word": "quenching", "partOfSpeech": "adjectives" },
+        { "word": "dark", "partOfSpeech": "nouns" }
+      ]
+    },
+    {
+      "line": [
+        { "word": "Til", "partOfSpeech": "" },
+        { "word": "they", "partOfSpeech": "pronouns" },
+        { "word": "are", "partOfSpeech": "verbs" },
+        { "word": "all,", "partOfSpeech": "" },
+        { "word": "all", "partOfSpeech": "" },
+        { "word": "inside", "partOfSpeech": "" },
+        { "word": "me,", "partOfSpeech": "pronouns" }
+      ]
+    },
+    {
+      "line": [
+        { "word": "Pepper", "partOfSpeech": "adjectives" },
+        { "word": "hot", "partOfSpeech": "adjectives" },
+        { "word": "and", "partOfSpeech": "conjunctions" },
+        { "word": "sharp.", "partOfSpeech": "adjectives" }
+      ]
+    },
+    {
+      "line": [
+        { "word": "Sometimes,", "partOfSpeech": "" },
+        { "word": "instead,", "partOfSpeech": "" },
+        { "word": "I", "partOfSpeech": "pronouns" },
+        { "word": "stir", "partOfSpeech": "verbs" },
+        { "word": "myself", "partOfSpeech": "pronouns" }
+      ]
+    },
+    {
+      "line": [
+        { "word": "Into", "partOfSpeech": "" },
+        { "word": "a", "partOfSpeech": "" },
+        { "word": "universe", "partOfSpeech": "nouns" },
+        { "word": "still", "partOfSpeech": "" },
+        { "word": "young,", "partOfSpeech": "adjectives" }
+      ]
+    },
+    {
+      "line": [
+        { "word": "Still", "partOfSpeech": "" },
+        { "word": "warm", "partOfSpeech": "adjectives" },
+        { "word": "as", "partOfSpeech": "" },
+        { "word": "blood:", "partOfSpeech": "nouns" }
+      ]
+    },
+    {
+      "line": [
+        { "word": "No", "partOfSpeech": "" },
+        { "word": "outer", "partOfSpeech": "adjectives" },
+        { "word": "space,", "partOfSpeech": "nouns" },
+        { "word": "just", "partOfSpeech": "" },
+        { "word": "space,", "partOfSpeech": "nouns" }
+      ]
+    },
+    {
+      "line": [
+        { "word": "The", "partOfSpeech": "" },
+        { "word": "light", "partOfSpeech": "nouns" },
+        { "word": "of", "partOfSpeech": "" },
+        { "word": "all", "partOfSpeech": "" },
+        { "word": "the", "partOfSpeech": "" },
+        { "word": "not", "partOfSpeech": "" },
+        { "word": "yet", "partOfSpeech": "" },
+        { "word": "stars", "partOfSpeech": "nouns" }
+      ]
+    },
+    {
+      "line": [
+        { "word": "Drifting", "partOfSpeech": "verbs" },
+        { "word": "like", "partOfSpeech": "" },
+        { "word": "a", "partOfSpeech": "" },
+        { "word": "bright", "partOfSpeech": "adjectives" },
+        { "word": "mist,", "partOfSpeech": "nouns" }
+      ]
+    },
+    {
+      "line": [
+        { "word": "And", "partOfSpeech": "" },
+        { "word": "all", "partOfSpeech": "" },
+        { "word": "of", "partOfSpeech": "" },
+        { "word": "us,", "partOfSpeech": "pronouns" },
+        { "word": "and", "partOfSpeech": "" },
+        { "word": "everything", "partOfSpeech": "nouns" }
+      ]
+    },
+    {
+      "line": [
+        { "word": "Already", "partOfSpeech": "" },
+        { "word": "there", "partOfSpeech": "" }
+      ]
+    },
+    {
+      "line": [
+        { "word": "But", "partOfSpeech": "" },
+        { "word": "unconstrained", "partOfSpeech": "verbs" },
+        { "word": "by", "partOfSpeech": "" },
+        { "word": "form.", "partOfSpeech": "nouns" }
+      ]
+    },
+    {
+      "line": [
+        { "word": "And", "partOfSpeech": "" },
+        { "word": "sometime", "partOfSpeech": "" },
+        { "word": "it’s", "partOfSpeech": "" },
+        { "word": "enough", "partOfSpeech": "" }
+      ]
+    },
+    {
+      "line": [
+        { "word": "To", "partOfSpeech": "" },
+        { "word": "lie", "partOfSpeech": "verbs" },
+        { "word": "down", "partOfSpeech": "" },
+        { "word": "here", "partOfSpeech": "" },
+        { "word": "on", "partOfSpeech": "" },
+        { "word": "earth", "partOfSpeech": "nouns" }
+      ]
+    },
+    {
+      "line": [
+        { "word": "Beside", "partOfSpeech": "" },
+        { "word": "our", "partOfSpeech": "pronouns" },
+        { "word": "long", "partOfSpeech": "adjectives" },
+        { "word": "ancestral", "partOfSpeech": "adjectives" },
+        { "word": "bones:", "partOfSpeech": "nouns" }
+      ]
+    },
+    {
+      "line": [
+        { "word": "To", "partOfSpeech": "" },
+        { "word": "walk", "partOfSpeech": "verbs" },
+        { "word": "across", "partOfSpeech": "adverbs" },
+        { "word": "the", "partOfSpeech": "" },
+        { "word": "cobble", "partOfSpeech": "adjectives" },
+        { "word": "fields", "partOfSpeech": "nouns" }
+      ]
+    },
+    {
+      "line": [
+        { "word": "Of", "partOfSpeech": "" },
+        { "word": "our", "partOfSpeech": "pronouns" },
+        { "word": "discarded", "partOfSpeech": "adjectives" },
+        { "word": "skulls,", "partOfSpeech": "nouns" }
+      ]
+    },
+    {
+      "line": [
+        { "word": "Each", "partOfSpeech": "" },
+        { "word": "like", "partOfSpeech": "" },
+        { "word": "a", "partOfSpeech": "" },
+        { "word": "treasure,", "partOfSpeech": "nouns" },
+        { "word": "like", "partOfSpeech": "" },
+        { "word": "a", "partOfSpeech": "" },
+        { "word": "chrysalis,", "partOfSpeech": "nouns" }
+      ]
+    },
+    {
+      "line": [
+        { "word": "Thinking:", "partOfSpeech": "verbs" },
+        { "word": "whatever", "partOfSpeech": "" },
+        { "word": "left", "partOfSpeech": "" },
+        { "word": "these", "partOfSpeech": "" },
+        { "word": "husks", "partOfSpeech": "nouns" }
+      ]
+    },
+    {
+      "line": [
+        { "word": "Flew", "partOfSpeech": "verbs" },
+        { "word": "off", "partOfSpeech": "" },
+        { "word": "on", "partOfSpeech": "" },
+        { "word": "bright", "partOfSpeech": "adjectives" },
+        { "word": "wings.", "partOfSpeech": "nouns" }
+      ]
+    }
+  ];
+
+  let width = 500,
+    height = 700;
+
+  let svg = d3.select('svg')
+    .attr('height', height)
+    .attr('width', width);
+
+  let gLines = svg.append('g')
+    .attr('transform', `translate(0,55)`);
+
+  svg.append('text')
+    .text('Antidotes to Fear of Death')
+    .attr('y', 10);
+
+  svg.append('text')
+    .text('by Rebecca Elson')
+    .attr('class', 'gray')
+    .attr('y', 25);
+  
+  svg.append('text')
+    .text('Connect parts of speech')
+    .attr('class', 'mute')
+    .attr('y', 40);
+
+  let g = svg.selectAll('.text-line')
+    .data(poemHTMLArr)
+    .enter()
+    .append('g')
+    .attr('class', (d, i) => 'text-line text-line-' + i)
+    .attr('transform', `translate(0,55)`);
+
+  g.append('text')
+    .attr('y', (d, i) => 20 * (i + 1))
+    .selectAll('tspan')
+    .data(d => d.line)
+    .enter()
+    .append('tspan')
+    .attr('class', d => `text-word ${d.partOfSpeech}`)
+    .html(d => d.word + ' ')
+    .on('mouseover', (e, d) => hoverOver(d.partOfSpeech))
+    .on('mouseout', hoverOut);
+
+  let types = [
+    { type: 'nouns', pos: [] },
+    { type: 'pronouns', pos: [] },
+    { type: 'verbs', pos: [] },
+    { type: 'adjectives', pos: [] },
+    { type: 'adverbs', pos: [] }
+  ];
+
+  for (let i = 0; i < types.length; i++) {
+    let x = width / 1.25;
+    let y = height * 0.25 + ((i + 1) * 20);
+
+    svg.append('text')
+      .attr('x', x)
+      .attr('y', y + 55)
+      .text(types[i].type)
+      .attr('class', `text-type mute ${types[i].type}`)
+      .on('mouseover', () => hoverOver(types[i].type))
+      .on('mouseout', hoverOut);
+
+    types[i].pos = [x, y];
+  }
+
+  function hoverOver(partOfSpeech) {
+    gLines.html('');
+
+    if (partOfSpeech) {
+      let elems = document.querySelectorAll('.text-word.' + partOfSpeech);
+
+      let { pos } = types.find(t => t.type === partOfSpeech);
+
+      for (let elem of elems) {
+        let bbox = elem.getBBox();
+
+        gLines.append('line')
+          .attr('x1', bbox.x + bbox.width + 2)
+          .attr('x2', pos[0] - 2)
+          .attr('y1', bbox.y + (bbox.height / 2))
+          .attr('y2', pos[1] - 2.5)
+          .attr('class', 'connection');
+      }
+
+      let allWords = document.querySelectorAll('.text-word');
+
+      for (let w of allWords) {
+        if (w.classList.contains(partOfSpeech)) {
+          w.classList.remove('hide');
+          w.classList.add('red');
+        } else {
+          w.classList.add('hide');
+          w.classList.remove('red');
+        }
+      }
+
+      let allTypes = document.querySelectorAll('.text-type');
+
+      for (let t of allTypes) {
+        if (t.classList.contains(partOfSpeech)) {
+          t.classList.add('red');
+        } else {
+          t.classList.remove('red');
+        }
+      }
+    }
+  }
+
+  function hoverOut() {
+    gLines.html('');
+
+    let allWords = document.querySelectorAll('.text-word');
+
+    for (let w of allWords) {
+      w.classList.remove('hide');
+      w.classList.remove('red');
+    }
+
+    let allTypes = document.querySelectorAll('.text-type');
+
+    for (let t of allTypes) {
+      t.classList.remove('red');
+    }
+  }
+</script>
+
+</html>

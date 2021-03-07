@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Translate</title>
+
+  <link rel="stylesheet" href="../global.css">
+  <style>
+    body {
+      background: #333;
+      text-align: center
+    }
+
+    #container {
+      width: 1050px;
+      margin: 20px auto;
+      position: relative;
+    }
+
+    h1 {
+      margin-bottom: 15px;
+      color: white;
+    }
+
+    .mute {
+      color: #444;
+    }
+
+    #content {
+      columns: 3;
+      text-align: left;
+    }
+
+    #content a {
+      display: inline-block;
+
+    }
+
+    p,
+    #content a {
+      color: #999;
+      cursor: pointer;
+    }
+
+    p#content a.line:hover {
+      color: white;
+      padding-left: 10px;
+      border-left: solid 2px #ddd;
+    }
+
+    #content span {
+      font-size: 8px;
+      opacity: 0.5;
+      margin-top: 0px;
+      line-height: 0;
+      color: #444;
+      display: inline-block;
+      margin-left: 20px;
+    }
+    .wrapper {
+      padding: 0px 30px;
+    }
+
+    button {
+      border: solid 1px #444;
+      background: #444;
+      color: #fff;
+      padding: 5px 10px;
+      text-shadow: none;
+      border-radius: 2px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #555;
+    }
+  </style>
+  <script src="https://unpkg.com/wavesurfer.js"></script>
+</head>
+
+<body>
+
+  <div id="container">
+    <h1>Puedo Escribir los Versos más Tristes esta Noche<br />
+      <span class="gray">by Pablo Neruda</span><br />
+      <span class="mute">Translate words</span>
+    </h1>
+    <button>Enable audio</button>
+    <div class="wrapper">
+      <div id="waveform"></div>
+    </div>
+    <p id="content">
+      <a class="line" data-line="01" data-start="0" data-end="7">Puedo escribir los versos más tristes esta noche.</a><br />
+      <span class="line-01">Tonight I can write the saddest lines.</span><br />
+      <a class="line" data-line="02" data-start="7" data-end="14">Escribir, por ejemplo : 'La noche está estrellada,</a><br />
+      <span class="line-02">Write, for example,’The night is shattered</span><br />
+      <a class="line" data-line="03" data-start="15" data-end="20">y tiritan, azules, los astros, a lo lejos'.</a><br />
+      <span class="line-03">and the blue stars shiver in the distance.’</span><br />
+
+      <a class="line" data-line="04" data-start="20" data-end="28">El viento de la noche gira en el cielo y canta.</a><br />
+      <span class="line-04">The night wind revolves in the sky and sings.</span><br />
+      <a class="line" data-line="05" data-start="29" data-end="36">Puedo escribir los versos más tristes esta noche.</a><br />
+      <span class="line-05">Tonight I can write the saddest lines.</span><br />
+      <a class="line" data-line="06" data-start="36" data-end="42">Yo la quise, y a veces ella también me quiso.</a><br />
+      <span class="line-06">I loved her, and sometimes she loved me too.</span><br />
+
+      <a class="line" data-line="07" data-start="42" data-end="48">En las noches como ésta la tuve entre mis brazos.</a><br />
+      <span class="line-07">Through nights like this one I held her in my arms</span><br />
+      <a class="line" data-line="08" data-start="48" data-end="57">La besé tantas veces bajo el cielo infinito.</a><br />
+      <span class="line-08">I kissed her again and again under the endless sky.</span><br />
+      <a class="line" data-line="09" data-start="55" data-end="61">Ella me quiso, a veces yo también la quería.</a><br />
+      <span class="line-09">She loved me sometimes, and I loved her too.</span><br />
+
+      <a class="line" data-line="10" data-start="62" data-end="67">Cómo no haber amado sus grandes ojos fijos.</a><br />
+      <span class="line-10">How could one not have loved her great still eyes.</span><br />
+      <a class="line" data-line="11" data-start="68" data-end="73">Puedo escribir los versos más tristes esta noche.</a><br />
+      <span class="line-11">Tonight I can write the saddest lines.</span><br />
+      
+      <a class="line" data-line="12" data-start="73" data-end="79">Pensar que no la tengo. &nbsp;Sentir que la he perdido.</a><br />
+      <span class="line-12">To think that I do not have her. To feel that I have lost her.</span><br />
+
+      <a class="line" data-line="13" data-start="79" data-end="84">Oir la noche immensa, más inmensa sin ella.</a><br />
+      <span class="line-13">To hear the immense night, still more immense without her.</span><br />
+      <a class="line" data-line="14" data-start="85" data-end="91">Y el verso cae al alma como al pasto el rocío.</a><br />
+      <span class="line-14">And the verse falls to the soul like dew to the pasture.</span><br />
+      <a class="line" data-line="15" data-start="92" data-end="97">Qué importa que mi amor no pudiera guardarla.</a><br />
+      <span class="line-15">What does it matter that my love could not keep her.</span><br />
+
+      <a class="line" data-line="16" data-start="97" data-end="105">La noche está estrellada y ella no está conmigo.</a><br />
+      <span class="line-16">The night is shattered and she is not with me.</span><br />
+      <a class="line" data-line="17" data-start="105" data-end="111">Eso es todo. A lo lejos alguien canta. A lo lejos.</a><br />
+      <span class="line-17">This is all. In the distance someone is singing. In the distance.</span><br />
+      <a class="line" data-line="18" data-start="112" data-end="116">Mi alma no se contenta con haberla perdido.</a><br />
+      <span class="line-18">My soul is not satisfied that it has lost her.</span><br />
+
+      <a class="line" data-line="19" data-start="116" data-end="120">Como para acercarla mi mirada la busca.</a><br />
+      <span class="line-19">My sight searches for her as though to go to her.</span><br />
+      <a class="line" data-line="20" data-start="120" data-end="125">Mi corazón la busca, y ella no está conmigo.</a><br />
+      <span class="line-20">My heart looks for her, and she is not with me.</span><br />
+      <a class="line" data-line="21" data-start="125" data-end="131">La misma noche que hace blanquear los mismos arboles.</a><br />
+      <span class="line-21">The same night whitening the same trees.</span><br />
+
+      <a class="line" data-line="22" data-start="131" data-end="138">Nosotros, los de entonces, ya no somos los mismos.</a><br />
+      <span class="line-22">We, of that time, are no longer the same.</span><br />
+      <a class="line" data-line="23" data-start="138" data-end="145">Ya no la quiero, es cierto pero cuánto la quise.</a><br />
+      <span class="line-23">I no longer love her, that’s certain, but how I loved her.</span><br />
+      <a class="line" data-line="24" data-start="145" data-end="151">Mi voz buscaba el viento para tocar su oído.</a><br />
+      <span class="line-24">My voice tried to find the wind to touch her hearing.</span><br />
+
+      <a class="line" data-line="25" data-start="151" data-end="157">De otro. Será de otro. Como antes de mis besos.</a><br />
+      <span class="line-25">Another’s. She will be another’s. Like my kisses before.</span><br />
+      <a class="line" data-line="26" data-start="158" data-end="164">Su voz, su cuerpo claro. Sus ojos infinitos.</a><br />
+      <span class="line-26">Her void. Her bright body. Her infinite eyes.</span><br />
+      <a class="line" data-line="27" data-start="164" data-end="170">Ya no la quiero, es cierto, pero tal vez la quiero.</a><br />
+      <span class="line-27">I no longer love her, that’s certain, but maybe I love her.</span><br />
+
+      <a class="line" data-line="28" data-start="170" data-end="176">Es tan corto al amor, y es tan largo el olvido.</a><br />
+      <span class="line-28">Love is so short, forgetting is so long.</span><br />
+      <a class="line" data-line="29" data-start="175" data-end="182">Porque en noches como ésta la tuve entre mis brazos,</a><br />
+      <span class="line-29">Because through nights like this one I held her in my arms</span><br />
+      <a class="line" data-line="30" data-start="182" data-end="188">Mi alma no se contenta con haberla perdido.</a><br />
+      <span class="line-30">my soul is not satisfied that it has lost her.</span><br />
+
+      <a class="line" data-line="31" data-start="188" data-end="195">Aunque ésta sea el último dolor que ella me causa,</a><br />
+      <span class="line-31">Though this be the last pain that she makes me suffer</span><br />
+      <a class="line" data-line="32" data-start="195" data-end="205">y éstos sean los últimos versos que yo le escribo.</a><br />
+      <span class="line-32">and these the last verses that I write for her.</span>
+    </p>
+
+  </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script src="../baffle.js"></script>
+<script>
+  var wavesurfer = WaveSurfer.create({
+    container: '#waveform',
+    waveColor: '#ccc',
+    progressColor: 'goldenrod'
+  });
+
+  wavesurfer.load('neruda.mp3')
+
+  $('.line').on('mouseover', function () {
+    let lineNum = $(this).data('line');
+    let start = $(this).data('start');
+    let end = $(this).data('end');
+    let className = '.line-' + lineNum;
+    $(className).css('color', 'goldenrod');
+    let b = baffle(className).start();
+    b.reveal(1000)
+    wavesurfer.play(start, end)
+  })
+
+  $('button').on('click', function() {
+    $(this).remove()
+  })
+  
+</script>
+</html>

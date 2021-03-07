@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Remix</title>
+  <link rel="stylesheet" href="global.css">
+  <style>
+    .container {
+      max-width: 500px;
+      width: 90%;
+      margin: 40px auto 0px;
+    }
+    h1 {
+      float: left;
+      width: 150px;
+    }
+    ol {
+      list-style-position: inside;
+      padding-left: 0;
+      float: left;
+    }
+    a {
+      color: #333;
+      text-decoration: none;
+    }
+    a:hover, a:hover i {
+      text-decoration-line: underline;
+      color: #999;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1><span id="title">Remix</span><br/>
+    <span class="gray">Tiffany France</span><br />
+    <span class="mute">Spring 2021</span>
+    </h1>
+    
+    <ol>
+      <li><a href="remix01/remix01-01.html"><i>translate</i> &nbsp;==> words</a></li>
+      <li><a href="remix02/remix02-01.html"><i>encode</i> &nbsp;==> letters</a></li>
+      <li><a href="remix03/remix03-01.html"><i>remove</i> &nbsp;==> stop words</a></li>
+      <li><a href="remix04/remix04-01.html"><i>connect</i> &nbsp;==> parts of speech</a></li>
+      <li><a href="remix05/remix05-01.html"><i>disentigrate</i> &nbsp;==> type</a></li>
+    </ol>
+
+
+
+
+  </div>
+
+  
+</body>
+<script src="baffle.js"></script>
+<script>
+  let b = baffle('#title').start(1500);
+  b.reveal(1500,1000);
+</script>
+</html>

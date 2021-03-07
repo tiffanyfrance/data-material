@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dissentigrate</title>
+  <link rel="stylesheet" href="../global.css">
+  <style>
+    body {
+      text-align: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+    #text {
+      max-width: 100%;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .content {
+      width: 100%;
+      line-height: 0;
+    }
+
+    .content span {
+      font-family: 'Libre Baskerville', serif;
+    }
+
+    .content.white-text {
+      position: absolute;
+      top: 0;
+      font-style: italic;
+    }
+
+    span {
+      line-height: 0;
+      font-weight: 100;
+      display: inline-block;
+    }
+    
+    .hidden-message {
+      position: absolute;
+      font-size: 12px;
+      padding: 5px 10px;
+      z-index: 10;
+    }
+  </style>
+</head>
+<body>
+  <div id="text"></div>
+  <div class="hidden-message" style="top: 380px;left: 40%;transform: rotate(-180deg);">
+    <p class="gray">I suffer thirst, Govinda, and on this long Samana path my thirst has not grown less.</p>
+  </div>
+  <div class="hidden-message" id="whiteout" style="top: 340px;left: 30%;">
+    <p>I have always thirsted for knowledge, I have always been full of questions.</p>
+  </div>
+  <div class="hidden-message" style="top: 420px;left: 60%;">
+    <p class="mute">Disentigrate type</p>
+  </div>
+</body>
+
+<script>
+  let container = document.getElementById("text"); 
+  let sidhartha = "I suffer thirst, Govinda, and on this long Samana path my thirst has not grown less. I have always thirsted for knowledge, I have always been full of questions.Year after year I have questioned the Brahmins, year after year I have questioned the holy Vedas. Perhaps, Govinda, it would have been equally good, equally clever and holy if I had questioned the rhinoceros or the chimpanzee. I have spent a long time and have not yet finished, in order to learn this, Govinda: that one can learn nothing. There is, so I believe, in the essence of everything, something that we cannot call learning. There is, my friend, only a knowledge - that is everywhere, that is Atman, that is in me and you and in every creature, and I am beginning to believe that this knowledge has no worse enemy than the man of knowledge, than learning. I suffer thirst, Govinda, and on this long Samana path my thirst has not grown less. I have always thirsted for knowledge, I have always been full of questions.Year after year I have questioned the Brahmins, year after year I have questioned the holy Vedas. Perhaps, Govinda, it would have been equally good, equally clever and holy if I had questioned the rhinoceros or the chimpanzee. I have spent a long time and have not yet finished, in order to learn this, Govinda: that one can learn nothing. There is, so I believe, in the essence of everything, something that we cannot call learning. There is, my friend, only a knowledge - that is everywhere, that is Atman, that is in me and you and in every creature, and I am beginning to believe that this knowledge has no worse enemy than the man of knowledge, than learning. I suffer thirst, Govinda, and on this long Samana path my thirst has not grown less. I have always thirsted for knowledge, I have always been full of questions.Year after year I have questioned the Brahmins, year after year I have questioned the holy Vedas. Perhaps, Govinda, it would have been equally good, equally clever and holy if I had questioned the rhinoceros or the chimpanzee. I have spent a long time and have not yet finished, in order to learn this, Govinda: that one can learn nothing. There is, so I believe, in the essence of everything, something that we cannot call learning. There is, my friend, only a knowledge - that is everywhere, that is Atman, that is in me and you and in every creature, and I am beginning to believe that this knowledge has no worse enemy than the man of knowledge, than learning.I suffer thirst, Govinda, and on this long Samana path my thirst has not grown less. I have always thirsted for knowledge, I have always been full of questions.Year after year I have questioned the Brahmins, year after year I have questioned the holy Vedas. Perhaps, Govinda, it would have been equally good, equally clever and holy if I had questioned the rhinoceros or the chimpanzee. I have spent a long time and have not yet finished, in order to learn this, Govinda: that one can learn nothing. There is, so I believe, in the essence of everything, something that we cannot call learning. There is, my friend, only a knowledge - that is everywhere, that is Atman, that is in me and you and in every creature, and I am beginning to believe that this knowledge has no worse enemy than the man of knowledge, than learning.I suffer thirst, Govinda, and on this long Samana path my thirst has not grown less. I have always thirsted for knowledge, I have always been full of questions.Year after year I have questioned the Brahmins, year after year I have questioned the holy Vedas. Perhaps, Govinda, it would have been equally good, equally clever and holy if I had questioned the rhinoceros or the chimpanzee. I have spent a long time and have not yet finished, in order to learn this, Govinda: that one can learn nothing. There is, so I believe, in the essence of everything, something that we cannot call learning. There is, my friend, only a knowledge - that is everywhere, that is Atman, that is in me and you and in every creature, and I am beginning to believe that this knowledge has no worse enemy than the man of knowledge, than learning.I suffer thirst, Govinda, and on this long Samana path my thirst has not grown less. I have always thirsted for knowledge, I have always been full of questions.Year after year I have questioned the Brahmins, year after year I have questioned the holy Vedas. Perhaps, Govinda, it would have been equally good, equally clever and holy if I had questioned the rhinoceros or the chimpanzee. I have spent a long time and have not yet finished, in order to learn this, Govinda: that one can learn nothing. There is, so I believe, in the essence of everything, something that we cannot call learning. There is, my friend, only a knowledge - that is everywhere, that is Atman, that is in me and you and in every creature, and I am beginning to believe that this knowledge has no worse enemy than the man of knowledge, than learning.I suffer thirst, Govinda, and on this long Samana path my thirst has not grown less. I have always thirsted for knowledge, I have always been full of questions.Year after year I have questioned the Brahmins, year after year I have questioned the holy Vedas. Perhaps, Govinda, it would have been equally good, equally clever and holy if I had questioned the rhinoceros or the chimpanzee. I have spent a long time and have not yet finished, in order to learn this, Govinda: that one can learn nothing. There is, so I believe, in the essence of everything, something that we cannot call learning. There is, my friend, only a knowledge - that is everywhere, that is Atman, that is in me and you and in every creature, and I am beginning to believe that this knowledge has no worse enemy than the man of knowledge, than learning.";
+
+  let arr = sidhartha.split('');
+  
+  let whiteText = drawText('white');
+
+  container.innerHTML = `<p class="content">${drawText('#333')}</p>
+    <p class="content white-text" style="">${whiteText}</p>`;
+           
+  function drawText(color) {
+    let str = '';
+
+    if (color === "white") arr = arr.reverse();
+
+    for(var i = 0; i < arr.length; i++) {
+      let elem = `<span style="color: ${color};font-size: ${Math.floor(Math.random() * (60 - 10 + 1) + 10)}px;
+      opacity: ${Math.floor(Math.random() * (1 - 0.1 + 1) + 0.1)}">${arr[i]}</span>`;
+      str += elem;
+    }
+
+    return str;
+
+  }
+
+  var callCount = 1;
+  var repeater = setInterval(function () {
+    if (callCount < 15) {
+      container.innerHTML += `<p class="content white-text" 
+      style="font-family: 'impact','arial black', auto;
+      transform: rotate(${callCount * 33}deg);">
+      ${whiteText}</p>`;
+      callCount += 1;
+    } else {
+      
+      document.getElementById('whiteout').style.backgroundColor = 'white';
+      clearInterval(repeater);
+    }
+  }, 100);
+  
+
+</script>
+</html>
